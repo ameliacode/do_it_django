@@ -1,10 +1,13 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from .models import Post
 
 class PostList(ListView): #Class Based View
     model = Post
     ordering = "-pk"
+
+class PostDetail(DetailView):
+    model = Post
 
 # index.html
 # Create your views here. Function Based View
@@ -24,7 +27,7 @@ class PostList(ListView): #Class Based View
 #
 #     return render(
 #         request,
-#         "blog/single_post_page.html",
+#         "blog/post_detail.html",
 #         {
 #             "post" : post,
 #         }
